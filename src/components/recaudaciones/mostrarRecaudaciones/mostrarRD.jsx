@@ -31,6 +31,8 @@ export default function MostrarRD() {
                     dia={recaudacion.dia}
                     apellido={recaudacion.choferes.map((el) => el.apellido)}
                     total={recaudacion.total}
+                    neto={recaudacion.neto}
+                    kilometros={recaudacion.kilometros}
                     gnc={recaudacion.gnc}
                     montoChofer={recaudacion.montoChofer}
                     documento={recaudacion.choferes.map((el) => el.documento)}

@@ -7,10 +7,12 @@ import { Stack } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import { useDispatch } from "react-redux";
 import { createChoferes } from "../../../redux/actions/index";
-import { Link } from "react-router-dom";
+import swal from "sweetalert"
+import { useNavigate } from "react-router-dom";
 
 export default function PostChoferes() {
   const dispatch = useDispatch();
+  const history = useNavigate(); 
 
   const [input, setInput] = useState({
     nombre: "",
@@ -31,8 +33,18 @@ export default function PostChoferes() {
   const handleSelect = (e) => {
     setInput({ ...input, carnet: e.target.value });
   };
+  
+    const alert = () => {
+      swal({
+        title: "Chofer creado",
+        text: "El chofer ha sido creado con exito",
+        icon: "success",
+        button: "Aceptar",
+      });
+    };
 
   const handleSubmit = (e) => {
+    alert()
     e.preventDefault();
     dispatch(createChoferes(input));
     setInput({
@@ -43,9 +55,8 @@ export default function PostChoferes() {
       carnet: "Si",
       vencimientoCarnet: "",
     });
+    history.push("/home");
   };
-
-  console.log(input);
 
   return (
     <>
@@ -70,7 +81,7 @@ export default function PostChoferes() {
               <Typography gutterBottom variant="h5" component="div">
                 Nombre
               </Typography>
-              <Input name="nombre" onChange={handleInput} required="required" />
+              <Input name="nombre" value={input.nombre} onChange={handleInput} required="required" sx={{color:"white"}} />
             </Grid>
             <Grid item xs={4} sm={4} md={4} sx={{ marginBottom: "4%" }}>
               <Typography gutterBottom variant="h5" component="div">
@@ -80,6 +91,9 @@ export default function PostChoferes() {
                 name="apellido"
                 onChange={handleInput}
                 required="required"
+                value={input.apellido}
+                sx={{color:"white"}}
+
               />
             </Grid>
             <Grid item xs={4} sm={4} md={4} sx={{ marginBottom: "4%" }}>
@@ -90,6 +104,8 @@ export default function PostChoferes() {
                 name="documento"
                 onChange={handleInput}
                 required="required"
+                value={input.documento}
+                sx={{color:"white"}}
               />
             </Grid>
             <Grid item xs={4} sm={4} md={4} sx={{ marginBottom: "4%" }}>
@@ -100,6 +116,8 @@ export default function PostChoferes() {
                 name="telefono"
                 onChange={handleInput}
                 required="required"
+                value={input.telefono}
+                sx={{color:"white"}}
               />
             </Grid>
             <Grid item xs={4} sm={4} md={4} sx={{ marginBottom: "4%" }}>
@@ -112,6 +130,9 @@ export default function PostChoferes() {
                 name="carnet"
                 onChange={handleSelect}
                 required="required"
+                value={input.carnet}
+                sx={{color:"white"}}
+                
               >
                 <MenuItem name="carnet" value={"Si"}>
                   SI
@@ -129,6 +150,8 @@ export default function PostChoferes() {
                 name="vencimientoCarnet"
                 onChange={handleInput}
                 required="required"
+                value={input.vencimientoCarnet}
+                sx={{color:"white"}}
               />
             </Grid>
           </Grid>

@@ -47,7 +47,7 @@ export default function CartRD(props) {
       />
       <CardContent>
         <Typography variant="body1" color="text.secondary">
-            Neto: ${props.total}
+            Neto: ${props.neto}
         </Typography>
         <Typography variant="body1" color="text.secondary">
             35%: ${props.montoChofer}
@@ -55,8 +55,11 @@ export default function CartRD(props) {
         <Typography variant="body1" color="text.secondary">
             GNC: ${props.gnc}
         </Typography>
+        <Typography variant="body1" color="text.secondary">
+            Kilometros recorridos: {props.kilometros}km
+        </Typography>
         <Typography variant="body1" >
-            TOTAL: ${props.total - props.montoChofer - props.gnc}
+            TOTAL: ${props.total}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
