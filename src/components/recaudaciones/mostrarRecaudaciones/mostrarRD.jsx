@@ -16,7 +16,7 @@ export default function MostrarRD() {
   console.log(recaudaciones);
   return (
     <div>
-      <Box sx={{ width: "100%", marginTop: "50px", marginLeft: "3.5%" }}>
+      <Box sx={{ width: "100%", marginTop: "50px", textAlign: "center"}}>
         <Grid
           container
           spacing={{ xs: 4, md: 3 }}

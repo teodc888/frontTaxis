@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Input, Select } from "@mui/material";
+import { Input, Select } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -12,23 +12,20 @@ import {
 } from "../../../redux/actions/index";
 import FormControl from "@mui/material/FormControl";
 import swal from "sweetalert";
-import TextField from "@mui/material/TextField";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DatePicker from "@mui/lab/DatePicker";
+// import TextField from "@mui/material/TextField";
+// import AdapterDateFns from "@mui/lab/AdapterDateFns";
+// import LocalizationProvider from "@mui/lab/LocalizationProvider";
+// import DatePicker from "@mui/lab/DatePicker";
 
 export default function CargarRD() {
   // const [value, setValue] = React.useState(null);
   const dispatch = useDispatch();
-
-
 
   useEffect(() => {
     dispatch(obtenerChoferes());
   }, [dispatch]);
 
   const choferes = useSelector((state) => state.choferes);
-
 
   const alert = () => {
     swal({
@@ -101,7 +98,9 @@ export default function CargarRD() {
         </FormControl>
       </Stack>
       <form onSubmit={handleSubmit}>
-        <Box sx={{ width: "100%", marginLeft: "10%" }}>
+        <Box
+          sx={{ width: "100%", textAlign: "center"}}
+        >
           <Grid
             container
             rowSpacing={1}
@@ -113,7 +112,13 @@ export default function CargarRD() {
               <Typography gutterBottom variant="h5" component="div">
                 Dia
               </Typography>
-              <Input name="dia" value={input.dia} onChange={handleInput} required="required" sx={{color:"white"}} />
+              <Input
+                name="dia"
+                value={input.dia}
+                onChange={handleInput}
+                required="required"
+                sx={{ color: "white" }}
+              />
               {/* <LocalizationProvider dateAdapter={AdapterDateFns} sx={{color:"white"}} >
                 <DatePicker
                   label="Dia"

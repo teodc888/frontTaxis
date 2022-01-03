@@ -12,16 +12,16 @@ export default function Home() {
       >
         <h1>Bienvenido a la mejor App de taxis</h1>
         <Link to="/recaudaciones">
-          <Button variant="contained">Cargar Recaudacion</Button>
+          <Button sx={{backgroundColor:"#fbc02d", color:"black"}} variant="success">Cargar Recaudacion</Button>
         </Link>
         <Link to="/recaudacionesTotales">
-          <Button variant="contained">Mostrar Recaudaciones</Button>
+          <Button sx={{backgroundColor:"#fbc02d", color:"black"}} variant="success">Mostrar Recaudaciones</Button>
         </Link>
         <Link to="/choferes">
-          <Button variant="contained">Todos los choferes</Button>
+          <Button sx={{backgroundColor:"#fbc02d", color:"black"}} variant="success">Todos los choferes</Button>
         </Link>
         <Link to="/cargarChofer">
-          <Button variant="contained">Cargar nuevo chofer</Button>
+          <Button sx={{backgroundColor:"#fbc02d", color:"black"}} variant="success">Cargar nuevo chofer</Button>
         </Link>
       </Stack>
     </>

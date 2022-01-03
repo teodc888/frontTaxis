@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Button, Input, Select } from "@mui/material";
+import React, { useState } from "react";
+import {  Input, Select } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -69,7 +69,7 @@ export default function PostChoferes() {
         <h1>CREAR CHOFER NUEVO</h1>
       </Stack>
       <form onSubmit={handleSubmit}>
-        <Box sx={{ width: "100%", marginLeft: "10%" }}>
+        <Box sx={{ width: "100%", textAlign: "center"}}>
           <Grid
             container
             rowSpacing={1}

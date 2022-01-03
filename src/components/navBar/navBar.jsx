@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ bgcolor: "#ffeb3b", color: "black" }}>
+      <AppBar position="static" sx={{ bgcolor: "#f9a825", color: "black" }}>
         <Toolbar variant="dense">
           <IconButton
             edge="start"
