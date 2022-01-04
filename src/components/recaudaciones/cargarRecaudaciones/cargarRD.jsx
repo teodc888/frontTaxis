@@ -76,7 +76,7 @@ export default function CargarRD() {
 
   return (
     <>
-      <Stack direction="column" alignItems="center" justifyContent="center">
+      <Stack direction="column" alignItems="center" justifyContent="center"     textAlign="center">
         <h1>CREAR NUEVA RECAUDACION</h1>
         <h2>ELIJA EL CHOFER</h2>
         <FormControl variant="standard" sx={{ m: 1, minWidth: 220 }}>

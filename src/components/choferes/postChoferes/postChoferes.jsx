@@ -65,6 +65,7 @@ export default function PostChoferes() {
         alignItems="center"
         justifyContent="center"
         spacing={2}
+        textAlign="center"
       >
         <h1>CREAR CHOFER NUEVO</h1>
       </Stack>

@@ -19,16 +19,26 @@ export default function GetChoferes() {
   console.log(choferes);
   return (
     <div>
-      <Box sx={{ width: "100%", marginTop: "50px", textAlign: "center" }}>
+      <Box
+        sx={{ width: "100%", marginTop: "50px" }}
+        alignItems="center"
+        justify="center"
+      >
         <Grid
-          container
           spacing={{ xs: 4, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
+          container
         >
           {choferes &&
             choferes.map((chofer) => (
               <Grid item xs={4} sm={4} md={4} key={chofer.id}>
-                <Card sx={{ maxWidth: 345, backgroundColor:"#263238", color:"white" }}>
+                <Card
+                  sx={{
+                    maxWidth: 345,
+                    backgroundColor: "#263238",
+                    color: "white",
+                  }}
+                >
                   <CardMedia
                     component="img"
                     height="350"

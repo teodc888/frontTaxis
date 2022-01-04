@@ -1,35 +1,101 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Drawer from "@material-ui/core/Drawer";
+import Box from "@material-ui/core/Box";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Avatar from "@material-ui/core/Avatar";
+import Divider from "@material-ui/core/Divider";
+import Typography from "@material-ui/core/Typography";
+import AssignmentInd from "@material-ui/icons/AssignmentInd";
+import Home from "@material-ui/icons/Home";
+import Apps from "@material-ui/icons/Apps";
+import ContactMail from "@material-ui/icons/ContactMail";
+import { makeStyles } from "@material-ui/core/styles";
+import MenuIcon from "@mui/icons-material/Menu";
 
-export default function NavBar() {
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ bgcolor: "#f9a825", color: "black" }}>
-        <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
+const useStyles = makeStyles((theme) => ({
+  appbar: {
+    background: "#3e2723",
+    margin: 0,
+  },
+  arrow: {
+    color: "#f57f17",
+  },
+  title: {
+    color: "black",
+  },
+  menuSliderContainer: {
+    width: 300,
+    background: "#212121",
+    height: "100%",
+  },
+  listItem: {
+    color: "#f57f17",
+  },
+}));
+
+const menuItems = [
+  { listIcon: <Home />, listText: "Inicio", listPath: "/" },
+  { listIcon: <Home />, listText: "Cargar Recaudacion", listPath: "/recaudaciones" },
+  { listIcon: <AssignmentInd />, listText: "Mostrar Recaudacion", listPath: "/recaudacionesTotales" },
+  { listIcon: <Apps />, listText: "Cargar choferes", listPath: "/cargarChofer" },
+  { listIcon: <ContactMail />, listText: "Mostrar choferes", listPath: "/choferes" },
+];
+
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  const classes = useStyles();
+
+  const sideList = () => (
+    <Box className={classes.menuSliderContainer} component="div">
+      {/* <Avatar className={classes.avatar} src={Img} alt="Mahmudul Alam" /> */}
+      <Divider />
+      <List>
+        {menuItems.map((item, i) => (
+          <ListItem
+            button
+            key={i}
+            className={classes.listItem}
+            onClick={() => setOpen(false)}
+            component={Link}
+            to={item.listPath}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            color="inherit"
-            component="div"
-            sx={{ flexGrow: 1, textDecoration: "none" }}
-          >
-            <Link to="home">TAXIS</Link>
-          </Typography>
-        </Toolbar>
-      </AppBar>
+            <ListItemIcon className={classes.listItem}>
+              {item.listIcon}
+            </ListItemIcon>
+            <ListItemText primary={item.listText} />
+          </ListItem>
+        ))}
+      </List>
     </Box>
   );
-}
+
+  return (
+    <React.Fragment>
+      <Box component="nav">
+        <AppBar position="static" className={classes.appbar}>
+          <Toolbar>
+            <IconButton onClick={() => setOpen(true)}>
+              <MenuIcon className={classes.arrow} />
+            </IconButton>
+              <Typography variant="h5" className={classes.title}>
+                TAXIS
+              </Typography>
+          </Toolbar>
+        </AppBar>
+      </Box>
+      <Drawer open={open} anchor="right" onClose={() => setOpen(false)}>
+        {sideList()}
+      </Drawer>
+    </React.Fragment>
+  );
+};
+
+export default Navbar;
