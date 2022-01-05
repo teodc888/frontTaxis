@@ -9,14 +9,30 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import { makeStyles } from "@material-ui/core/styles";
 
 export default function GetChoferes() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(obtenerChoferes());
   }, [dispatch]);
+  
   const choferes = useSelector((state) => state.choferes);
-  console.log(choferes);
+
+
+  const useStyles = makeStyles(() => ({
+    cardChoferes: {
+      background: "#263238",
+      color:"white",
+      maxWidth: 345,
+    },
+  }));
+
+
+
+  const classes = useStyles();
+
   return (
     <div>
       <Box
@@ -32,13 +48,7 @@ export default function GetChoferes() {
           {choferes &&
             choferes.map((chofer) => (
               <Grid item xs={4} sm={4} md={4} key={chofer.id}>
-                <Card
-                  sx={{
-                    maxWidth: 345,
-                    backgroundColor: "#263238",
-                    color: "white",
-                  }}
-                >
+                <Card className={classes.cardChoferes}>
                   <CardMedia
                     component="img"
                     height="350"
