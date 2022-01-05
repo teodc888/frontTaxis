@@ -164,7 +164,7 @@ export default function PostChoferes() {
           spacing={2}
         >
 
-            <button>CARGAR</button>
+            <button className="btn5">CARGAR</button>
         
         </Stack>
       </form>

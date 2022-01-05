@@ -12,13 +12,15 @@ import {
 } from "../../../redux/actions/index";
 import FormControl from "@mui/material/FormControl";
 import swal from "sweetalert";
-// import TextField from "@mui/material/TextField";
-// import AdapterDateFns from "@mui/lab/AdapterDateFns";
-// import LocalizationProvider from "@mui/lab/LocalizationProvider";
-// import DatePicker from "@mui/lab/DatePicker";
+import TextField from "@mui/material/TextField";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DatePicker from "@mui/lab/DatePicker";
+import MobileDatePicker from '@mui/lab/MobileDatePicker';
+import { makeStyles } from "@material-ui/core/styles";
 
 export default function CargarRD() {
-  // const [value, setValue] = React.useState(null);
+  const [value, setValue] = React.useState(new Date());
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,9 +38,10 @@ export default function CargarRD() {
     });
   };
 
-  let hoy = new Date();
   let fecha =
-    hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear();
+  value &&
+  value.getDate() + "/" + (value.getMonth() + 1) + "/" + value.getFullYear();
+
 
   const [input, setInput] = useState({
     dia: fecha,
@@ -74,9 +77,18 @@ export default function CargarRD() {
     });
   };
 
+
+  const useStyles = makeStyles(() => ({
+    dataDie: {
+      backgroundColor:"white",
+    },
+  }));
+
+  const classes = useStyles();
+
   return (
     <>
-      <Stack direction="column" alignItems="center" justifyContent="center"   >
+      <Stack direction="column" alignItems="center" justifyContent="center" textAlign="center"  >
         <h1>CREAR NUEVA RECAUDACION</h1>
         <h2>ELIJA EL CHOFER</h2>
         <FormControl variant="standard" sx={{ m: 1, minWidth: 220 }}>
@@ -110,24 +122,19 @@ export default function CargarRD() {
               <Typography gutterBottom variant="h5" component="div">
                 Dia
               </Typography>
-              <Input
-                name="dia"
-                value={input.dia}
-                onChange={handleInput}
-                required="required"
-                sx={{ color: "white" }}
-              />
-              {/* <LocalizationProvider dateAdapter={AdapterDateFns} sx={{color:"white"}} >
-                <DatePicker
+              <LocalizationProvider dateAdapter={AdapterDateFns} >
+                <MobileDatePicker
+                  variant="success"
+                  className={classes.dataDie}
                   label="Dia"
-                  views={['year', 'month', 'day']}
                   value={value}
                   onChange={(newValue) => {
                     setValue(newValue);
+                    setInput({ ...input, dia:  newValue.getDate() + "/" + (newValue.getMonth() + 1) + "/" + newValue.getFullYear() });
                   }}
                   renderInput={(params) => <TextField {...params} />}
                 />
-              </LocalizationProvider> */}
+              </LocalizationProvider>
             </Grid>
             <Grid item xs={4} sm={4} md={4} sx={{ marginBottom: "4%" }}>
               <Typography gutterBottom variant="h5" component="div">
@@ -185,7 +192,7 @@ export default function CargarRD() {
           justifyContent="center"
           spacing={2}
         >
-          <button>CARGAR</button>
+          <button className="btn5">CARGAR</button>
         </Stack>
       </form>
     </>

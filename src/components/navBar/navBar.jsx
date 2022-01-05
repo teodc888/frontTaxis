@@ -20,14 +20,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
-    background: "#3e2723",
+    background: "#263238",
     margin: 0,
   },
   arrow: {
     color: "#f57f17",
   },
   title: {
-    color: "black",
+    color: "white",
   },
   menuSliderContainer: {
     width: 300,
