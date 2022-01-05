@@ -13,10 +13,11 @@ import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import AssignmentInd from "@material-ui/icons/AssignmentInd";
 import Home from "@material-ui/icons/Home";
-import Apps from "@material-ui/icons/Apps";
 import ContactMail from "@material-ui/icons/ContactMail";
 import { makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@mui/icons-material/Menu";
+import AddIcon from '@mui/icons-material/Add';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -41,10 +42,10 @@ const useStyles = makeStyles((theme) => ({
 
 const menuItems = [
   { listIcon: <Home />, listText: "Inicio", listPath: "/" },
-  { listIcon: <Home />, listText: "Cargar Recaudacion", listPath: "/recaudaciones" },
-  { listIcon: <AssignmentInd />, listText: "Mostrar Recaudacion", listPath: "/recaudacionesTotales" },
-  { listIcon: <Apps />, listText: "Cargar choferes", listPath: "/cargarChofer" },
-  { listIcon: <ContactMail />, listText: "Mostrar choferes", listPath: "/choferes" },
+  { listIcon: <AccountBoxIcon />, listText: "Mostrar Recaudacion", listPath: "/recaudacionesTotales" },
+  { listIcon: <AccountBoxIcon />, listText: "Mostrar choferes", listPath: "/choferes" },
+  { listIcon: <AddIcon />, listText: "Cargar Recaudacion", listPath: "/recaudaciones" },
+  { listIcon: <AddIcon />, listText: "Cargar choferes", listPath: "/cargarChofer" },
 ];
 
 const Navbar = () => {

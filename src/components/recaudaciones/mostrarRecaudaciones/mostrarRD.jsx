@@ -4,7 +4,7 @@ import { mostrarRecaudaciones } from "../../../redux/actions/index";
 import CartRD from "../cartRD/cartRD";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-
+import { Stack } from "@mui/material";
 
 export default function MostrarRD() {
   const dispatch = useDispatch();
@@ -15,11 +15,38 @@ export default function MostrarRD() {
 
   const recaudaciones = useSelector((state) => state.recaudaciones);
 
+  const aux = recaudaciones.map((el) => Number(el.total))
+  const aux2 = recaudaciones.map((el) => el.kilometros)
+  const aux3 = recaudaciones.map((el) => el.gnc)
 
+  const total = aux.reduce((a, b) => a + b, 0)  
+  const kilometro = aux2.reduce((a, b) => a + b, 0)
+  const gnc = aux3.reduce((a, b) => a + b, 0)
+
+  console.log(aux2)
 
   return (
     <div>
-      <Box sx={{ width: "100%", marginTop: "50px"}}>
+      <Box sx={{ width: "100%",  textAlign:"center" }}>
+        <h1>RECAUDACIONES TOTALES</h1>
+        <Grid
+          container
+          spacing={{ xs: 4, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
+          <Grid item xs={4} sm={4} md={4}>
+            <h3>TOTAL: ${total}</h3>
+          </Grid>
+          <Grid item xs={4} sm={4} md={4}>
+            <h3>GNC TOTAL: ${gnc}</h3>
+          </Grid>
+          <Grid item xs={4} sm={4} md={4}>
+            <h3>KILOMETROS TOTALES: {kilometro} km</h3>
+          </Grid>
+        </Grid>
+      </Box>
+
+      <Box sx={{ width: "100%", marginTop: "50px" }}>
         <Grid
           container
           spacing={{ xs: 4, md: 3 }}
