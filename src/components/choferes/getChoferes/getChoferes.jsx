@@ -26,6 +26,7 @@ export default function GetChoferes() {
       background: "#263238",
       color:"white",
       maxWidth: 345,
+      margin: "auto",
     },
   }));
 

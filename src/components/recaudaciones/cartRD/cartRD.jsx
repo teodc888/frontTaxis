@@ -30,44 +30,59 @@ export default function CartRD(props) {
     setExpanded(!expanded);
   };
 
+
+  const useStyles = makeStyles(() => ({
+    cardRD: {
+      background: "#37474f",
+      color:"white",
+      maxWidth: 300,
+      margin: "auto",
+    },
+  }));
+
+  const classes = useStyles();
+
   return (
-    <Card sx={{ maxWidth: 300 }}>
+    <Card className={classes.cardRD}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: "#fdd835" }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: "#f57f17" }} >
             T
           </Avatar>
         }
         title={props.nombre}
-        title={props.apellido}
+        titleTypographyProps={{ variant: "h6" }}
         subheader={props.dia}
+        subheaderTypographyProps={{ color:"white" }}
+        sx={{color:"white"}}
       />
       <CardContent>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1" >
           Neto: ${props.neto}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1" >
           35%: ${props.montoChofer}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1">
           GNC: ${props.gnc}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1">
           Kilometros recorridos: {props.kilometros}km
         </Typography>
         <Typography variant="body1">TOTAL: ${props.total}</Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <FavoriteIcon sx={{color:"#f57f17"}} />
         </IconButton>
         <ExpandMore
+        
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <ExpandMoreIcon />
+          <ExpandMoreIcon  sx={{color:"#f57f17"}}/>
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>

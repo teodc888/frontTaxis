@@ -77,7 +77,7 @@ const Navbar = () => {
   );
 
   return (
-    <React.Fragment>
+    <>
       <Box component="nav">
         <AppBar position="static" className={classes.appbar}>
           <Toolbar>
@@ -93,7 +93,7 @@ const Navbar = () => {
       <Drawer open={open} anchor="right" onClose={() => setOpen(false)}>
         {sideList()}
       </Drawer>
-    </React.Fragment>
+    </>
   );
 };
 

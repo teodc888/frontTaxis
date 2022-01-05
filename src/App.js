@@ -9,7 +9,7 @@ import MostrarRD from './components/recaudaciones/mostrarRecaudaciones/mostrarRD
 function App() {
   return (
     <>
-      <NavBar />
+    <NavBar />
     <Routes>
       <Route path="/" element={<BarChart />} />
       <Route path="/choferes" element={<GetChoferes />} />
