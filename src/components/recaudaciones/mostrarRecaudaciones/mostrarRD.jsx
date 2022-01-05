@@ -4,6 +4,8 @@ import { mostrarRecaudaciones } from "../../../redux/actions/index";
 import CartRD from "../cartRD/cartRD";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+
+
 export default function MostrarRD() {
   const dispatch = useDispatch();
 
@@ -13,7 +15,8 @@ export default function MostrarRD() {
 
   const recaudaciones = useSelector((state) => state.recaudaciones);
 
-  console.log(recaudaciones);
+
+
   return (
     <div>
       <Box sx={{ width: "100%", marginTop: "50px"}}>

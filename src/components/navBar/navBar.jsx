@@ -9,7 +9,6 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import AssignmentInd from "@material-ui/icons/AssignmentInd";
@@ -21,14 +20,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
-    background: "#3e2723",
+    background: "#263238",
     margin: 0,
   },
   arrow: {
     color: "#f57f17",
   },
   title: {
-    color: "black",
+    color: "white",
   },
   menuSliderContainer: {
     width: 300,
@@ -78,7 +77,7 @@ const Navbar = () => {
   );
 
   return (
-    <React.Fragment>
+    <>
       <Box component="nav">
         <AppBar position="static" className={classes.appbar}>
           <Toolbar>
@@ -94,7 +93,7 @@ const Navbar = () => {
       <Drawer open={open} anchor="right" onClose={() => setOpen(false)}>
         {sideList()}
       </Drawer>
-    </React.Fragment>
+    </>
   );
 };
 
