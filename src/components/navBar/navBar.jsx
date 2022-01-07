@@ -37,11 +37,12 @@ const useStyles = makeStyles((theme) => ({
   },
   listItem: {
     color: "#f57f17",
+
   },
 }));
 
 const menuItems = [
-  { listIcon: <Home />, listText: "Inicio", listPath: "/" },
+  { listIcon: <Home /> , listText: "Inicio", listPath: "/" },
   { listIcon: <AccountBoxIcon />, listText: "Mostrar Recaudacion", listPath: "/recaudacionesTotales" },
   { listIcon: <AccountBoxIcon />, listText: "Mostrar choferes", listPath: "/choferes" },
   { listIcon: <AddIcon />, listText: "Cargar Recaudacion", listPath: "/recaudaciones" },
@@ -82,10 +83,10 @@ const Navbar = () => {
       <Box component="nav">
         <AppBar position="static" className={classes.appbar}>
           <Toolbar>
-            <IconButton onClick={() => setOpen(true)}>
+            {/* <IconButton onClick={() => setOpen(true)}>
               <MenuIcon className={classes.arrow} />
-            </IconButton>
-              <Typography variant="h5" className={classes.title}>
+            </IconButton> */}
+              <Typography variant="h5" className={classes.arrow} onClick={() => setOpen(true)}>
                 TAXIS
               </Typography>
           </Toolbar>

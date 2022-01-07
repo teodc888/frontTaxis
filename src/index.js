@@ -10,7 +10,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 const { persistor, store } = Store;
 
-
+// persistor.purge();
 ReactDOM.render(
 <Provider store={store}>
     <PersistGate persistor={persistor}>

@@ -1,33 +1,42 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { mostrarRecaudaciones } from "../../../redux/actions/index";
+import {
+  mostrarRecaudaciones,
+  obtenerChoferes,
+} from "../../../redux/actions/index";
 import CartRD from "../cartRD/cartRD";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import { Stack } from "@mui/material";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 
 export default function MostrarRD() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(mostrarRecaudaciones());
+    dispatch(obtenerChoferes());
   }, [dispatch]);
 
   const recaudaciones = useSelector((state) => state.recaudaciones);
+  const choferes = useSelector((state) => state.choferes);
 
-  const aux = recaudaciones.map((el) => Number(el.total))
-  const aux2 = recaudaciones.map((el) => el.kilometros)
-  const aux3 = recaudaciones.map((el) => el.gnc)
+  const aux = recaudaciones.map((el) => Number(el.total));
+  const aux2 = recaudaciones.map((el) => el.kilometros);
+  const aux3 = recaudaciones.map((el) => el.gnc);
 
-  const total = aux.reduce((a, b) => a + b, 0)  
-  const kilometro = aux2.reduce((a, b) => a + b, 0)
-  const gnc = aux3.reduce((a, b) => a + b, 0)
+  const total = aux.reduce((a, b) => a + b, 0);
+  const kilometro = aux2.reduce((a, b) => a + b, 0);
+  const gnc = aux3.reduce((a, b) => a + b, 0);
 
-  console.log(aux2)
+  console.log(aux2);
 
   return (
     <div>
-      <Box sx={{ width: "100%",  textAlign:"center" }}>
+      <Box sx={{ width: "100%", textAlign: "center" }}>
         <h1>RECAUDACIONES TOTALES</h1>
         <Grid
           container
@@ -44,6 +53,22 @@ export default function MostrarRD() {
             <h3>KILOMETROS TOTALES: {kilometro} km</h3>
           </Grid>
         </Grid>
+        <FormControl sx={{ m: 1, minWidth: 320 }}>
+          <InputLabel id="demo-simple-select-label">FILTRAR POR CHOFERES</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            label="FILTRAR POR CHOFERES"
+
+          >
+            <MenuItem value={"ALL"}>TODOS</MenuItem>
+            {
+              choferes.map((el) => (
+                <MenuItem value={el.nombre}>{el.nombre}</MenuItem>
+              ))
+            }
+          </Select>
+        </FormControl>
       </Box>
 
       <Box sx={{ width: "100%", marginTop: "50px" }}>
