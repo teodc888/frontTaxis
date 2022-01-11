@@ -7,11 +7,12 @@ import {
 import CartRD from "../cartRD/cartRD";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 export default function MostrarRD() {
   const dispatch = useDispatch();
@@ -54,22 +55,31 @@ export default function MostrarRD() {
           </Grid>
         </Grid>
         <FormControl sx={{ m: 1, minWidth: 320 }}>
-          <InputLabel id="demo-simple-select-label">FILTRAR POR CHOFERES</InputLabel>
+          <InputLabel id="demo-simple-select-label">
+            FILTRAR POR CHOFERES
+          </InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             label="FILTRAR POR CHOFERES"
-
           >
             <MenuItem value={"ALL"}>TODOS</MenuItem>
-            {
-              choferes.map((el) => (
-                <MenuItem value={el.nombre}>{el.nombre}</MenuItem>
-              ))
-            }
+            {choferes.map((el) => (
+              <MenuItem value={el.nombre}>{el.nombre}</MenuItem>
+            ))}
           </Select>
         </FormControl>
       </Box>
+
+      <Stack 
+                  direction="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  spacing={2}
+                  sx={{marginTop: "2rem"}}
+      >
+          <Pagination count={10} color="secondary" />
+        </Stack>
 
       <Box sx={{ width: "100%", marginTop: "50px" }}>
         <Grid
