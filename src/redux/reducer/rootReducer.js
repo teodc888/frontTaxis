@@ -1,8 +1,9 @@
-import {GET_CHOFERES, GET_RD} from "../actions/actionsTyps";
+import {GET_CHOFERES, GET_RD, GET_CHOQUES} from "../actions/actionsTyps";
 
 const inicialState = {
     choferes: [],
     recaudaciones: [],
+    choques: [],
 };
 
 export default function rootReducer (state = inicialState, action) {
@@ -16,6 +17,11 @@ export default function rootReducer (state = inicialState, action) {
             return {
                 ...state,
                 recaudaciones: action.payload,
+            };
+        case GET_CHOQUES:
+            return {
+                ...state,
+                choques: action.payload,
             };
         default:
             return state;

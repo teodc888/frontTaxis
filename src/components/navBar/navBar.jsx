@@ -23,9 +23,11 @@ const useStyles = makeStyles((theme) => ({
   appbar: {
     background: "#263238",
     margin: 0,
+    textAlign: "center",
   },
   arrow: {
     color: "#f57f17",
+    textAlign: "center",
   },
   title: {
     color: "white",
@@ -45,8 +47,10 @@ const menuItems = [
   { listIcon: <Home /> , listText: "Inicio", listPath: "/" },
   { listIcon: <AccountBoxIcon />, listText: "Mostrar Recaudacion", listPath: "/recaudacionesTotales" },
   { listIcon: <AccountBoxIcon />, listText: "Mostrar choferes", listPath: "/choferes" },
+  { listIcon: <AccountBoxIcon />, listText: "Mostrar choques", listPath: "/mostrarChoques" },
   { listIcon: <AddIcon />, listText: "Cargar Recaudacion", listPath: "/recaudaciones" },
   { listIcon: <AddIcon />, listText: "Cargar choferes", listPath: "/cargarChofer" },
+  { listIcon: <AddIcon />, listText: "Cargar Choque", listPath: "/choques" },
 ];
 
 const Navbar = () => {
