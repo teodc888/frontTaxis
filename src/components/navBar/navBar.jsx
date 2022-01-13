@@ -12,6 +12,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import AssignmentInd from "@material-ui/icons/AssignmentInd";
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import Home from "@material-ui/icons/Home";
 import ContactMail from "@material-ui/icons/ContactMail";
 import { makeStyles } from "@material-ui/core/styles";
@@ -45,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 const menuItems = [
   { listIcon: <Home /> , listText: "Inicio", listPath: "/" },
+  { listIcon: <CalendarTodayIcon />, listText: "Calendario", listPath: "/calendar" },
   { listIcon: <AccountBoxIcon />, listText: "Mostrar Recaudacion", listPath: "/recaudacionesTotales" },
   { listIcon: <AccountBoxIcon />, listText: "Mostrar choferes", listPath: "/choferes" },
   { listIcon: <AccountBoxIcon />, listText: "Mostrar choques", listPath: "/mostrarChoques" },
